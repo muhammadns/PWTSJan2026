@@ -21,21 +21,30 @@ You are the first person to start test automation in the organization:
     8: git push -u origin master = push the commited changes from local "master" to remote repo
 
 If the automation repository already available:
-    Clone the remote repo in local system - one time setup
+    0: Clone the remote repo in local system - one time setup
         git clone https://github.com... - repo URL
         Install all dependencies - npm install
-    Create a new branch for test automation branch - git checkout -b LoginPage
-    git branch - list all the branches in the repository including the recently created in GREEN color
-    Make the changes in the code and save it
-    git status - validate all the files that have changes
-    git add . - add all the files in local git area
-    git add tests/github.spec.ts - add only this file
-    git commit -m "added github"
-        Switch to the master branch - git checkout master
-        Pull the changes from remote "master" branch - git pull origin master / git pull
-        Switch back to the feature branch - git checkout LoginPage
-        Merge master branch to LoginPage branch - git merge master
-    Push the changes to remote branch - git push -u origin master
+
+    FOLLOWING STEPS FROM #1 TO # WILL DO ON DAILY BASIS:
+
+    1: Create a new branch for test automation branch from master branch - git checkout -b LoginPage (Branch Name)
+    2: git branch - list all the branches in the repository including the recently created branch (LoginPage) in GREEN color
+    3: Make the changes in the code and save it
+    4: git status - validate all the files that have changes
+    5: git add . - add all the files in local git area OR git add tests/github.spec.ts - add only this file
+    6: git commit -m "added github" - Provide a comment for the reason of commit
+        6.1: Switch to the master branch - git checkout master
+        6.2: Pull the changes from remote "master" branch - git pull origin master / git pull
+        6.3: Switch back to the feature branch - git checkout LoginPage
+        6.4: Merge master branch to LoginPage branch - git merge master
+
+    IF THERE IS A MERGE CONFLICT (WHEN SOMEONE ELSE ALSO WORKED ON THE SAME FILE AND PUSHED THE CODE AND YOU ARE ALSO PUSHING
+    YOUR CODE IN SAME FILE THEN ACCEPT THE CODE WHICH IS CORRECT), AND RUN
+        git add .
+        git commit -m "resolved conflict"
+        git merge master
+
+    7: Push the changes to the remote branch - git push origin LoginPage
 
     git stash - remove all the UNWANTED changes
     git remote add origin https://.... - add a remote repo to local repo and ask for authorization
